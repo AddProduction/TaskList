@@ -1,0 +1,13 @@
+<h1>タスクの編集ページ</h1>
+
+<p>編集対象のタスク：<%= @tasklist.id %>：<%= @tasklist.content %></p>
+
+<%= form_for(@tasklist) do |f| %>
+    <%= f.label :content, 'やるべきこと' %>
+    <%= f.text_field :content %>
+    <%= f.submit '保存' %>
+<% end %>
+
+<br>
+
+<%= link_to 'このタスクを削除する', @tasklist, method: :delete, data: { confirm: '本当に削除してよろしいですか？' } %>

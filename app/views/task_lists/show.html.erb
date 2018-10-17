@@ -1,0 +1,7 @@
+<h1><%= @tasklist.id %>のタスク内容</h1>
+<br>
+
+<%= @tasklist.content %>
+<br>
+<br>
+<%= link_to 'このタスクを編集する', edit_task_list_path(@tasklist) %>

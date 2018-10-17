@@ -10,6 +10,10 @@
   </head>
 
   <body>
-    <%= yield %>
+    <header>
+      <%= link_to 'マイタスク一覧', task_lists_path %>
+      <%= link_to 'タスクの新規作成', new_task_list_path %>
+    </header>
+      <%= yield %>
   </body>
 </html>

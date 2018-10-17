@@ -1,0 +1,7 @@
+<h1>タスクの新規作成</h1>
+
+<%= form_for(@tasklist) do |f| %>
+    <%= f.label :content, 'やるべきこと' %>
+    <%= f.text_field :content %>
+    <%= f.submit '保存' %>
+<% end %>
