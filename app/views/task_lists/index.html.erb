@@ -1,7 +1,16 @@
-<h1>マイタスク一覧</h1>
+<div class="row">
+  <div class="col-sm-12">
+    <div class="col-sm-offset-2 col-sm-8">
+      <div class="col-lg-offset-3 col-lg-6">
+        <h1>マイタスク一覧</h1>
 
-<ul>
-    <% @tasklists.each do |tasklist| %>
-        <li><%= link_to tasklist.id, task_list_path(tasklist) %> : <%= tasklist.content %> : <%= tasklist.status %></li>
-    <% end %>
-</ul>
+        <ul>
+          <% @tasklists.each do |tasklist| %>
+            <li><%= link_to tasklist.id, task_list_path(tasklist) %> : <%= tasklist.content %> : <%= tasklist.status %></li>
+            <br>
+          <% end %>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
