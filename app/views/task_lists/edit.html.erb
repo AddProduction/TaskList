@@ -1,9 +1,12 @@
 <h1>タスクの編集ページ</h1>
 
-<p>編集対象のタスク：<%= @tasklist.id %>：<%= @tasklist.content %></p>
+<div class ="show-container">
+    <p>編集対象のタスク：<%= @tasklist.id %>：<%= @tasklist.content %></p>
 
-<%= render 'layouts/form' %>
+    <%= render 'layouts/form' %>
 
-<br>
-
-<%= link_to 'このタスクを削除する', @tasklist, method: :delete, data: { confirm: '本当に削除してよろしいですか？' } %>
+    <br>
+    <button class ="btn btn-success">
+        <%= link_to 'このタスクを削除する', @tasklist, method: :delete, data: { confirm: '本当に削除してよろしいですか？' }, class: 'button-text-color' %>
+    </button>
+</div>
