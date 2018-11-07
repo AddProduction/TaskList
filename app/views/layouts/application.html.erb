@@ -1,18 +1,39 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale = 1">
+
     <title>Tasklist</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <!-- Bootstrap CSS -->
+    <link rel ="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <%= stylesheet_link_tag  'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   </head>
 
   <body>
     <header>
-      <%= link_to 'マイタスク一覧', task_lists_path %>
-      <%= link_to 'タスクの新規作成', new_task_list_path %>
+      <nav class ="navbar navbar-default">
+        <div class ="container-fluid">
+          <div class="navbar-header">
+            <button type ="button" class="navbar-toggle collapsed" data-toggle ="collapse" data-target="#navbarEexample1">
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <div class ="collapse navbar-collapse" id ="navbarEexample1">
+              <ul class ="nav navbar-nav">
+                <li><%= link_to 'マイタスク一覧', task_lists_path %></li>
+                <li><%= link_to 'タスクの新規作成', new_task_list_path %></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </nav>
     </header>
       <%= yield %>
   </body>
