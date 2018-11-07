@@ -1,8 +1,12 @@
 <h1><%= @tasklist.id %>のタスク内容</h1>
 <br>
 
-<%= @tasklist.content %>
-<br>
-<%= @tasklist.status %>
-<br>
-<%= link_to 'このタスクを編集する', edit_task_list_path(@tasklist) %>
+<div class ="show-container">
+    <p>やるべきこと : <%= @tasklist.content %></p>
+    <br>
+    <p>ステータス :  <%= @tasklist.status %></p>
+    <br>
+    <button class ="btn btn-success">
+        <%= link_to 'このタスクを編集する', edit_task_list_path(@tasklist), class: 'button-text-color' %>
+    </button>
+</div>
