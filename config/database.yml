@@ -14,19 +14,19 @@ default: &default
   encoding: utf8
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
   username: root
-  password:
-  socket: /var/lib/mysql/mysql.sock
+  password: root
+  socket: /var/run/mysqld/mysqld.sock
 
 development:
   <<: *default
-  database: tasklist_development
+  database: kadai-tasklist_development
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
 # Do not set this db to the same as development or production.
 test:
   <<: *default
-  database: tasklist_test
+  database: kadai-tasklist
 
 # As with config/secrets.yml, you never want to store sensitive information,
 # like your database password, in your source code. If your source code is
@@ -48,9 +48,16 @@ test:
 #     url: <%= ENV['DATABASE_URL'] %>
 #
 production:
+<<<<<<< HEAD
   adapter: postgresql
   encoding: unicode
   pool: 5
   database: tasklist_production
   username: tasklist
   password: <%= ENV['TASKLIST_DATABASE_PASSWORD'] %>
+=======
+  <<: *default
+  database: kadai-tasklist_production
+  username: kadai-tasklist
+  password: <%= ENV['TEST2_DATABASE_PASSWORD'] %>
+>>>>>>> c5358d75819174e027b36277ef6f2384c12dc278
