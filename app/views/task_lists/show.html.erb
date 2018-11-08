@@ -2,11 +2,11 @@
 <br>
 
 <div class ="show-container">
-    <p>やるべきこと : <%= @tasklist.content %></p>
-    <br>
-    <p>ステータス :  <%= @tasklist.status %></p>
-    <br>
-    <button class ="btn btn-success">
-        <%= link_to 'このタスクを編集する', edit_task_list_path(@tasklist), class: 'button-text-color' %>
-    </button>
+  <p>やるべきこと : <%= @tasklist.content %></p>
+  <br>
+  <p>ステータス :  <%= @tasklist.status %></p>
+  <br>
+  <button class ="btn btn-success">
+    <%= link_to 'このタスクを編集する', edit_task_list_path(@tasklist), class: 'button-text-color' %>
+   </button>
 </div>
