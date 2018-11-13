@@ -4,7 +4,8 @@ Rails.application.routes.draw do
   get 'login' => 'sessions#new'
   post 'login' => 'sessions#create'
   delete 'logout' => 'sessions#destroy'
+  
+  get 'tasklists/:id/new' => 'tasklists#new'
 
-  resources :task_lists
   resources :users, only: [:show, :new, :create, :destroy]
 end
