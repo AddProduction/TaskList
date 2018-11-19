@@ -1,5 +1,6 @@
 class TaskList < ApplicationRecord
   belongs_to :user
   
-  validates :status, presence: true, length: {maximum: 10}
+  validates :content, presence: true
+  validates :status, length: {maximum: 10}
 end

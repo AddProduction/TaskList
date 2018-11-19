@@ -1,12 +1,28 @@
-<h1><%= @tasklist.id %>のタスク内容</h1>
-<br>
+<h1>Task Details</h1>
+<h3><%= @list_name.name %>さんタスク</h3>
 
-<div class ="show-container">
-  <p>やるべきこと : <%= @tasklist.content %></p>
-  <br>
-  <p>ステータス :  <%= @tasklist.status %></p>
-  <br>
-  <button class ="btn btn-success">
-    <%= link_to 'このタスクを編集する', edit_task_list_path(@tasklist), class: 'button-text-color' %>
-   </button>
+<div class ="jumbotron">
+  <div class ="container">
+    <p class ="taskshow_li tasklink_color">タスク : <%= @tasklist.content %></p><br>
+    <p class ="taskshow_li tasklink_color">メモ :  <%= @tasklist.status %></p><br>
+    <% if current_user == @list_name %> 
+      <div class ="form_container">
+    		<%= form_for(@tasklist) do |f| %>
+    			<div class ="imput-group">
+    				<%= f.label :content, 'Myタスクの編集' %>
+    				<%= f.text_field :content, class: 'form-control' %>
+    			</div>
+    			<div class ="imput-group">
+    				<%= f.label :status, 'メモ' %>
+    				<%= f.text_field :status, class: 'form-control' %>
+    			</div>
+    			<br>
+    			<%= f.submit 'タスクを編集', class: 'btn btn-primary' %>
+    		<% end %>
+    	</div>
+  		<div class ="destroy_margin"></div>
+    	<%= link_to 'タスクの削除', @tasklist, method: :delete, data: { confirm: '本当によろしいですか！？' }, class: 'btn btn-danger' %>
+    <% end %>
+  </div>
 </div>
+

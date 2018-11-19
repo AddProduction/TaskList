@@ -1,4 +1,5 @@
 class TaskListsController < ApplicationController
+  before_action :require_user_logged_in, only: [:show, :create, :update]
   
   def index
     @tasklists = TaskList.all
@@ -6,33 +7,35 @@ class TaskListsController < ApplicationController
   
   def show
     @tasklist = TaskList.find(params[:id])
-  end
-  
-  def new
-    @tasklist = TaskList.new
+    
+    @tasklists = TaskList.new
+    
+    @list_name = User.find_by(id: @tasklist.user_id)
   end
   
   def create
-    @tasklist = TaskList.new(tasklist_params)
+    @tasklist = current_user.task_lists.build(tasklist_params)
     
     if @tasklist.save
-      redirect_to task_lists_path
+      flash[:success] = "作成したからには達成しましょうね！"
+      redirect_to "/users/#{session[:user_id]}"
     else
-      render :new
+      @tasklists = current_user.task_lists.build
+      @user = User.find_by(id: session[:user_id])
+      @mylists = current_user.task_lists.where(user_id: session[:user_id])
+      
+      flash.now[:danger] = 'タスクの作成に失敗したようです。'
+      render :template => "users/show"
     end
   end
-  
-  def edit
-    @tasklist = TaskList.find(params[:id])
-  end
-  
+
   def update
     @tasklist = TaskList.find(params[:id])
     
     if @tasklist.update(tasklist_params)
-      redirect_to task_lists_path
+      redirect_to "/users/#{session[:user_id]}"
     else
-      render :edit
+      render :show
     end
   end
   
@@ -40,7 +43,7 @@ class TaskListsController < ApplicationController
     @tasklist = TaskList.find(params[:id])
     @tasklist.destroy
     
-    redirect_to task_lists_path
+    redirect_to "/users/#{session[:user_id]}"
   end
   
   private

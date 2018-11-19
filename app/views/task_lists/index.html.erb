@@ -1,20 +1,15 @@
 <!-- トップページ -->
 <div class="row">
-  <div class="col-sm-12">
-    <div class="col-sm-offset-2 col-sm-8">
-      <div class="col-lg-offset-3 col-lg-6">
-          <h1 class ="h1">みんなのタスク</h1>
-          <br>
-          <h3 class ="h3">みんなのタスクを参考に自分のタスクを作成しよう！</h3>
-          <p class ="p">他人のタスクを見ることで普段気づかないタスクが見つかるかも？</p>
-          <br>
-          <ul>
-          <% @tasklists.each do |tasklist| %>
-            <li><%= link_to tasklist.id, task_list_path(tasklist) %> : <%= tasklist.content %> : <%= tasklist.status %></li>
-            <br>
-          <% end %>
-        </ul>
-      </div>
-    </div>
+  <div class="col-sm-12 col-sm-offset-2 col-sm-8 col-lg-offset-3 col-lg-6">
+    <h1 class ="h1">みんなのタスク</h1>
+    <br>
+    <h3>みんなのタスクを参考に自分のタスクを作成しよう！</h3>
+    <p class ="show-container">みんなのタスクを見ることで普段気づかないタスクが見つかるかも？</p>
+    <br>
+    <ul>
+    <% @tasklists.each do |tasklist| %>
+      <li class ="taskshow_li"><%= link_to tasklist.content, task_list_path(tasklist), class: 'tasklink_color' %> : <%= link_to tasklist.user.name, user_path(tasklist.user.id) %></li>
+    <% end %>
+    </ul>
   </div>
 </div>
