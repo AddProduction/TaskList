@@ -1,0 +1,14 @@
+<div class="row">
+  <div class="col-sm-12 col-sm-offset-2 col-sm-8 col-lg-offset-3 col-lg-6">
+    <h1 class ="h1">タスクリスト</h1>
+    <br>
+    <h3>タスクを共有しよう！</h3>
+    <p class ="show-container">タスクを共有し優先事項を整理しましょう！</p>
+    <br>
+    <ul>
+    <% @tasklists.each do |tasklist| %>
+      <li class ="taskshow_li"><%= link_to tasklist.content, task_list_path(tasklist), class: 'tasklink_color' %></li>
+    <% end %>
+    </ul>
+  </div>
+</div>

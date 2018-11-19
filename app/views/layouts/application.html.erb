@@ -28,10 +28,11 @@
             <div class ="collapse navbar-collapse" id ="navbarEexample1">
               <ul class ="nav navbar-nav">
                 <% if logged_in? %>
-                  <li><%= link_to 'みんなのタスク一覧', root_path %></li>
+                  <li><%= link_to 'みんなのタスク一覧', task_lists_path %></li>
                   <li><%= link_to 'マイタスク', "/users/#{session[:user_id]}" %></li>
                   <li><%= link_to 'ログアウト', logout_path, method: :delete %></li>
                 <% else %>
+                  <li><%= link_to 'HOME', root_path %></li>
                   <li><%= link_to 'ユーザー登録', new_user_path %></li>
                   <li><%= link_to 'ログイン', login_path %></li>
                 <% end %>

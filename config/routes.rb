@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  root to: 'task_lists#index'
+  root to: 'toppages#index'
 
   get 'login' => 'sessions#new'
   post 'login' => 'sessions#create'
