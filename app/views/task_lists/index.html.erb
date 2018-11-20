@@ -8,7 +8,7 @@
     <br>
     <ul>
     <% @tasklists.each do |tasklist| %>
-      <li class ="taskshow_li"><%= link_to tasklist.content, task_list_path(tasklist), class: 'tasklink_color' %> : <%= link_to tasklist.user.name, user_path(tasklist.user.id) %></li>
+      <li class ="taskshow_li"><%= link_to tasklist.content, task_list_path(tasklist) %> : <%= link_to tasklist.user.name, user_path(tasklist.user.id) %></li>
     <% end %>
     </ul>
   </div>
